@@ -54,12 +54,18 @@ class LinkedList {
     }
 
     at(index) {
+        if (index < 0) return null;
         let current = this.head;
-        for (let count = 0; count < index; count++) {
+        let count = 0;
+        while (current !== null) {
+            if (count === index) return current;
             current = current.nextNode;
+            count++;
         }
-        return current;
+        return null;
     }
+
+
 }
 
 const testLinkedList = new LinkedList();
@@ -69,4 +75,4 @@ testLinkedList.append("chicken");
 testLinkedList.prepend("crocodile");
 testLinkedList.prepend("goat");
 console.log(JSON.stringify(testLinkedList, null, 2));
-console.log(testLinkedList.at(3));
+console.log(testLinkedList.at(4));

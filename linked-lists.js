@@ -36,6 +36,10 @@ class LinkedList {
         }
         return counter;
     }
+
+    getHead() {
+        return this.head;
+    }
 }
 
 const testLinkedList = new LinkedList();
@@ -46,3 +50,4 @@ testLinkedList.prepend("crocodile");
 testLinkedList.prepend("goat");
 console.log(JSON.stringify(testLinkedList, null, 2));
 console.log(`Number of Nodes: ${testLinkedList.size()}`);
+console.log(testLinkedList.getHead())

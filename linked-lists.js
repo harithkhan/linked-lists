@@ -6,7 +6,6 @@ class Node {
 }
 
 class LinkedList {
-
     constructor() {
         this.head = null;
     }
@@ -23,12 +22,19 @@ class LinkedList {
             current.nextNode = newNode;
         }
     }
+
+    prepend(value) {
+        const newHead = new Node(value);
+        const oldHead = this.head;
+        this.head = newHead;
+        newHead.nextNode = oldHead;
+    }
 }
 
-
-
-const testLinkedList = new LinkedList;
+const testLinkedList = new LinkedList();
 testLinkedList.append("cat");
 testLinkedList.append("dog");
 testLinkedList.append("chicken");
+testLinkedList.prepend("crocodile");
+testLinkedList.prepend("goat");
 console.log(JSON.stringify(testLinkedList, null, 2));

@@ -24,10 +24,7 @@ class LinkedList {
     }
 
     prepend(value) {
-        const newHead = new Node(value);
-        const oldHead = this.head;
-        this.head = newHead;
-        newHead.nextNode = oldHead;
+        this.head = new Node(value, this.head);
     }
 
     size() {

@@ -15,11 +15,12 @@ class LinkedList {
         const newNode = new Node(value);
         if (this.head === null) {
             this.head = newNode;
-            this.nodes = [];
-            this.nodes.push(newNode);
         } else {
-            this.nodes[this.nodes.length - 1].nextNode = newNode;
-            this.nodes.push(newNode);
+            let current = this.head;
+            while (current.nextNode !== null) {
+                current = current.nextNode;
+            }
+            current.nextNode = newNode;
         }
     }
 }
@@ -30,5 +31,4 @@ const testLinkedList = new LinkedList;
 testLinkedList.append("cat");
 testLinkedList.append("dog");
 testLinkedList.append("chicken");
-console.log(testLinkedList);
-console.log(testLinkedList.nodes[2])
+console.log(JSON.stringify(testLinkedList, null, 2));

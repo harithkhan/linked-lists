@@ -29,6 +29,16 @@ class LinkedList {
         this.head = newHead;
         newHead.nextNode = oldHead;
     }
+
+    size() {
+        let counter = 0;
+        let current = this.head;
+        while (current !== null) {
+            counter++;
+            current = current.nextNode;
+        }
+        return counter;
+    }
 }
 
 const testLinkedList = new LinkedList();
@@ -38,3 +48,4 @@ testLinkedList.append("chicken");
 testLinkedList.prepend("crocodile");
 testLinkedList.prepend("goat");
 console.log(JSON.stringify(testLinkedList, null, 2));
+console.log(`Number of Nodes: ${testLinkedList.size()}`);

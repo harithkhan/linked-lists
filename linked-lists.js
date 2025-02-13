@@ -112,6 +112,8 @@ export class LinkedList {
         while (current !== null) {
             if (current === this.head) {
                 string += `(${current.value})`;
+            } else if (current.nextNode === null) {
+                string += ` -> (${current.value}) -> null`;
             } else {
                 string += ` -> (${current.value})`;
             }

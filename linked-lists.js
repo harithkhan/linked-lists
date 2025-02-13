@@ -75,7 +75,7 @@ class LinkedList {
             if (current.nextNode.nextNode === null) {
                 current.nextNode = null;
             }
-            current = current.nextNode; 
+            current = current.nextNode;
         }
     }
 

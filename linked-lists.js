@@ -102,6 +102,23 @@ class LinkedList {
         }
         return null;
     }
+    
+    toString() {
+        let string = "";
+        let current = this.head;
+        if (!current) {
+            return string;
+        }
+        while (current !== null) {
+            if (current === this.head) {
+                string += `(${current.value})`;
+            } else {
+                string += ` -> (${current.value})`;
+            }
+            current = current.nextNode;
+        }
+        return string;
+    }
 }
 
 const testLinkedList = new LinkedList();
@@ -112,4 +129,4 @@ testLinkedList.prepend("crocodile");
 testLinkedList.prepend("goat");
 
 console.log(JSON.stringify(testLinkedList, null, 2));
-console.log(testLinkedList.find("cat"));
+console.log(testLinkedList.toString());

@@ -65,7 +65,19 @@ class LinkedList {
         return null;
     }
 
-
+    pop() {
+        let current = this.head;
+        if (!current) return;
+        if (!current.nextNode) {
+            this.head = null;
+        }
+        while (current !== null) {
+            if (current.nextNode.nextNode === null) {
+                current.nextNode = null;
+            }
+            current = current.nextNode; 
+        }
+    }
 }
 
 const testLinkedList = new LinkedList();
@@ -74,5 +86,7 @@ testLinkedList.append("dog");
 testLinkedList.append("chicken");
 testLinkedList.prepend("crocodile");
 testLinkedList.prepend("goat");
+
 console.log(JSON.stringify(testLinkedList, null, 2));
-console.log(testLinkedList.at(4));
+testLinkedList.pop();
+console.log(JSON.stringify(testLinkedList, null, 2));

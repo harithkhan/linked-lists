@@ -91,7 +91,7 @@ class LinkedList {
     }
 
     find(value) {
-        let counter =  0;
+        let counter = 0;
         let current = this.head;
         while (current !== null) {
             if (current.value === value) {
@@ -102,7 +102,7 @@ class LinkedList {
         }
         return null;
     }
-    
+
     toString() {
         let string = "";
         let current = this.head;
@@ -126,16 +126,16 @@ class LinkedList {
         if (index < 0 || index >= this.size()) return null;
         while (current !== null) {
             if (index === 0) {
-                this.head = { "value": value, "nextNode": current };
+                this.head = { value: value, nextNode: current };
                 return;
             }
             if (counter < index - 1) {
                 current = current.nextNode;
-                counter++
+                counter++;
             }
             if (counter === index - 1) {
                 const adjacentNode = current.nextNode;
-                current.nextNode = { "value": value, "nextNode": adjacentNode };
+                current.nextNode = { value: value, nextNode: adjacentNode };
                 break;
             }
         }
@@ -153,7 +153,7 @@ class LinkedList {
         while (current !== null) {
             if (counter < index - 1) {
                 current = current.nextNode;
-                counter++
+                counter++;
             }
             if (counter === index - 1) {
                 const adjacentNode = current.nextNode.nextNode;
@@ -163,14 +163,3 @@ class LinkedList {
         }
     }
 }
-
-const testLinkedList = new LinkedList();
-testLinkedList.append("cat");
-testLinkedList.append("dog");
-testLinkedList.append("chicken");
-testLinkedList.prepend("crocodile");
-testLinkedList.prepend("goat");
-
-console.log(testLinkedList.toString());
-testLinkedList.removeAt(1);
-console.log(testLinkedList.toString());

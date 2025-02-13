@@ -119,6 +119,27 @@ class LinkedList {
         }
         return string;
     }
+
+    insertAt(value, index) {
+        let counter = 0;
+        let current = this.head;
+        if (index < 0 || index > this.size()) return null;
+        while (current !== null) {
+            if (index === 0) {
+                this.head = { "value": value, "nextNode": current };
+                return;
+            }
+            if (counter < index - 1) {
+                current = current.nextNode;
+                counter++
+            }
+            if (counter === index - 1) {
+                const adjacentNode = current.nextNode;
+                current.nextNode = { "value": value, "nextNode": adjacentNode };
+                break;
+            }
+        }
+    }
 }
 
 const testLinkedList = new LinkedList();
@@ -128,5 +149,6 @@ testLinkedList.append("chicken");
 testLinkedList.prepend("crocodile");
 testLinkedList.prepend("goat");
 
-console.log(JSON.stringify(testLinkedList, null, 2));
+console.log(testLinkedList.toString());
+console.log((testLinkedList.insertAt("pig", 10)));
 console.log(testLinkedList.toString());

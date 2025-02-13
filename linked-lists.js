@@ -123,7 +123,7 @@ class LinkedList {
     insertAt(value, index) {
         let counter = 0;
         let current = this.head;
-        if (index < 0 || index > this.size()) return null;
+        if (index < 0 || index >= this.size()) return null;
         while (current !== null) {
             if (index === 0) {
                 this.head = { "value": value, "nextNode": current };
@@ -140,6 +140,28 @@ class LinkedList {
             }
         }
     }
+
+    removeAt(index) {
+        if (index < 0 || index >= this.size()) return null;
+        if (index === 0) {
+            const adjacentNode = this.head.nextNode;
+            this.head = adjacentNode;
+            return;
+        }
+        let counter = 0;
+        let current = this.head;
+        while (current !== null) {
+            if (counter < index - 1) {
+                current = current.nextNode;
+                counter++
+            }
+            if (counter === index - 1) {
+                const adjacentNode = current.nextNode.nextNode;
+                current.nextNode = adjacentNode;
+                return;
+            }
+        }
+    }
 }
 
 const testLinkedList = new LinkedList();
@@ -150,5 +172,5 @@ testLinkedList.prepend("crocodile");
 testLinkedList.prepend("goat");
 
 console.log(testLinkedList.toString());
-console.log((testLinkedList.insertAt("pig", 10)));
+testLinkedList.removeAt(1);
 console.log(testLinkedList.toString());

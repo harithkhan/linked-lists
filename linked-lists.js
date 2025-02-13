@@ -78,6 +78,17 @@ class LinkedList {
             current = current.nextNode; 
         }
     }
+
+    contains(value) {
+        let current = this.head;
+        while (current !== null) {
+            if (current.value === value) {
+                return true;
+            }
+            current = current.nextNode;
+        }
+        return false;
+    }
 }
 
 const testLinkedList = new LinkedList();
@@ -88,5 +99,4 @@ testLinkedList.prepend("crocodile");
 testLinkedList.prepend("goat");
 
 console.log(JSON.stringify(testLinkedList, null, 2));
-testLinkedList.pop();
-console.log(JSON.stringify(testLinkedList, null, 2));
+console.log(testLinkedList.contains("cat"));
